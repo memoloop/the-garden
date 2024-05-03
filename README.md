@@ -15,3 +15,4 @@ IMPORTANT:<br>
 If you plant seeds but don't let them grow, and then save and exit you will lose those seeds.<br>
 If you close the game without pressing CTRL+S, it will not save your progress.<br>
 You can change the number of wheat and seeds in "saving/saving1.data".<br>
+If use windows, you can execute "execute.bat" that compile the game and run it.<br>
