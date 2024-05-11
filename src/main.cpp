@@ -5,6 +5,7 @@
 #include <SDL2/SDL_ttf.h>
 #include "components/scene.h"
 #include "game/scenes/mainScene.h"
+#include "game/scenes/menu.h"
 
 #define TITLE "The Garden"
 #define WINDOW_WIDTH 1600
@@ -19,20 +20,28 @@ int currentSceneIndex = 0;
 std::vector<Scene*> sceneList;
 
 MainScene* mainScene = nullptr;
+Menu* menu = nullptr;
 
 void init()
 {
-    mainScene = new MainScene(renderer);
+    mainScene = new MainScene(renderer, event);
+    menu = new Menu(renderer, event);
     sceneList.push_back(mainScene);
+    sceneList.push_back(menu);
 }
 
 void update()
 {
+    menu->start(&currentSceneIndex);
+    menu->quit(&running);
+
     if(event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
         running = false;
+
     for(Scene* scene : sceneList)
         if(scene->index == currentSceneIndex)
             scene->update();
+    
 }
 
 void draw()
@@ -62,16 +71,18 @@ int main()
 
     while(running)
     {
-        SDL_PollEvent(&event);
-        if(event.type == SDL_QUIT)
-            running = false;
+        while(SDL_PollEvent(&event))
+        {
+            update();
 
-        update();
+            if(event.type == SDL_QUIT)
+                running = false;
+        }
 
         SDL_RenderClear(renderer);
 
         draw();
-
+        
         SDL_SetRenderDrawColor(renderer, BACKGROUND_COLOR);
         SDL_RenderPresent(renderer);
     }

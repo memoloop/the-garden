@@ -1,6 +1,6 @@
 #include "scene.h"
 
-Scene::Scene(SDL_Renderer* renderer, int index)
+Scene::Scene(SDL_Renderer* renderer, SDL_Event event, int index)
 {
     this->renderer = renderer;
     this->event = event;

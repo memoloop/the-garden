@@ -3,8 +3,8 @@
 Label::Label(SDL_Renderer* renderer, int x, int y, int w, int h, std::string path, int size, std::string text) : Entity(x, y, w, h)
 {
     this->path = path;
-    setFgColor(255, 255, 255, 255);
-    setBgColor(0, 0, 0, 0);
+    setFgColor(0, 0, 0, 255);
+    setBgColor(255, 255, 255, 0);
     setText(renderer, text, size);
 }
 
@@ -39,10 +39,11 @@ void Label::setText(SDL_Renderer* renderer, std::string text, int size)
 {
     this->text = text;
     this->size = size;
-    font = TTF_OpenFont(path.c_str(), this->size);
+    font = TTF_OpenFont(path.c_str(), 19);
     if(font == nullptr)
     {
         std::cerr << "Impossible create the font!" << std::endl;
+        std::cerr << TTF_GetError() << std::endl;
     }
     SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), fgColor);
     texture = SDL_CreateTextureFromSurface(renderer, surface);

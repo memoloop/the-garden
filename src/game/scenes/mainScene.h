@@ -6,11 +6,12 @@
 #include "../orchard.h"
 #include "../score.h"
 #include "../../components/gui/label.h"
+#include "../../components/gui/button.h"
 
 class MainScene : public Scene
 {
     public:
-    MainScene(SDL_Renderer* renderer);
+    MainScene(SDL_Renderer* renderer, SDL_Event event);
     ~MainScene();
     void update() override;
 
@@ -34,6 +35,8 @@ class MainScene : public Scene
 
     Label* numberSeedsLabel;
     Label* numberWheatLabel;
+
+    Button* button;
 };
 
 #endif

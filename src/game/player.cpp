@@ -22,7 +22,7 @@ void Player::update()
     animate();
 }
 
-bool Player::move()
+void Player::move()
 {
     if(keys[SDL_SCANCODE_D])
     {

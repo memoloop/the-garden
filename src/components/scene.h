@@ -8,7 +8,7 @@
 class Scene
 {
     public:
-    Scene(SDL_Renderer* renderer, int index);
+    Scene(SDL_Renderer* renderer, SDL_Event event, int index);
     ~Scene();
     void add(Entity* entity);
     int index;

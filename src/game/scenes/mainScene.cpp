@@ -1,6 +1,6 @@
 #include "mainScene.h"
 
-MainScene::MainScene(SDL_Renderer* renderer) : Scene(renderer, 0)
+MainScene::MainScene(SDL_Renderer* renderer, SDL_Event event) : Scene(renderer, event, 1)
 {
     keys = SDL_GetKeyboardState(nullptr);
 
@@ -18,10 +18,13 @@ MainScene::MainScene(SDL_Renderer* renderer) : Scene(renderer, 0)
     numberSeedsLabel->setBgColor(39, 179, 44, 255);
     numberWheatLabel->setBgColor(39, 179, 44, 255);
 
+    button = new Button(renderer, 500, 300, 200, 100, "assets/font.ttf", 18, "Hello");
+
     add(orchard);
     add(player);
     add(numberSeedsLabel);
     add(numberWheatLabel);
+    add(button);
 
     lastTime = SDL_GetTicks64();
 }
@@ -43,6 +46,8 @@ void MainScene::update()
     if(keys[SDL_SCANCODE_LCTRL] || keys[SDL_SCANCODE_RCTRL])
         if(keys[SDL_SCANCODE_S])
             score.save();
+    if(button->click(SDL_BUTTON_LEFT))
+        std::cout << "Click" << std::endl;
 
 }
 

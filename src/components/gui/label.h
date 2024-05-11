@@ -17,7 +17,7 @@ class Label : public Entity
     virtual void draw(SDL_Renderer* renderer) override;
     virtual void update() override;
 
-    private:
+    protected:
     SDL_Color fgColor;
     SDL_Color bgColor = color;
     std::string path;

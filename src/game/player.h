@@ -12,7 +12,7 @@ class Player : public Sprite
 
     private:
     int speed = 2;
-    bool move();
+    void move();
     void animate();
     Uint64 lastTime;
     Uint64 changeFrameTime = 200;
