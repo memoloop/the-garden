@@ -6,6 +6,7 @@ g++ ^
     src/game/*.cpp ^
     src/game/plant/*.cpp ^
     src/game/scenes/*.cpp ^
+    src/game/forms/*.cpp ^
     src/components/*.cpp ^
     src/components/gui/*.cpp ^
     ^
