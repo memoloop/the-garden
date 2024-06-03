@@ -11,7 +11,7 @@ class Player : public Sprite
     void update() override;
 
     private:
-    int speed = 2;
+    int speed = 5;
     void move();
     void animate();
     Uint64 lastTime;
