@@ -9,6 +9,7 @@
 #include "../../components/gui/label.h"
 #include "../../components/gui/button.h"
 #include "../forms/tradeForm.h"
+#include "../../components/timer.h"
 
 #define BACKGROUND_COLOR 39, 179, 44, 255
 
@@ -35,6 +36,9 @@ class MainScene : public Scene
     void createPlant(Orchard* orchard);
     // Plant in orchard in params grown in wheat
     void createWheat(Orchard* orchard);
+
+    Timer* timerSeeds;
+    Timer* timerPlant;
 
     const Uint8* keys;
     Uint64 lastTime;

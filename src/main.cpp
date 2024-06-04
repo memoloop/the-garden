@@ -116,6 +116,9 @@ int main()
         // Set BG color and update the window
         SDL_SetRenderDrawColor(renderer, BACKGROUND_COLOR);
         SDL_RenderPresent(renderer);
+
+        // Set an interval by 1 millisecond
+        SDL_Delay(1);
     }
 
     destroy();
